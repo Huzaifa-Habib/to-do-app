@@ -30,7 +30,7 @@ body{
 .input-div{
     margin-left: auto;
     margin-right: auto;
-    width: calc(55vw);
+    width: calc(60vw);
     margin-top: 50px;
     
 }
@@ -125,3 +125,8 @@ input::placeholder{
 button{
     cursor: pointer;
 }
+
+.x{
+    text-decoration: line-through;
+}
+

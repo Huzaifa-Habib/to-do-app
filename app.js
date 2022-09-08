@@ -20,12 +20,18 @@ if (input.value.length === "") {
 input.setAttribute("type", "text")
 input.setAttribute("placeholder", "Enter Item")
 input.setAttribute("maxlength", "21")
+input.setAttribute("id", "input")
+
 
 
 var addBtn = document.createElement("button");
-addBtn.setAttribute("onClick", "add()");
+addBtn.setAttribute("onClick", "add(event)");
 addBtn.setAttribute("class", "add-btn");
 var addBtnTxt = document.createTextNode("Add")
+var updateBtn = document.createElement("btn");
+updateBtn.setAttribute("onClick", "update()")
+updateBtn.style.display = "none"
+var updateBtnTxt = document.createTextNode("Update")
 
 
 mainDiv.appendChild(headingDiv);
@@ -36,6 +42,10 @@ contentDiv.appendChild(inputDiv);
 inputDiv.appendChild(input)
 inputDiv.appendChild(addBtn);
 addBtn.appendChild(addBtnTxt)
+inputDiv.appendChild(updateBtn);
+updateBtn.appendChild(updateBtnTxt);
+
+
 
 var inputData=[];
 
@@ -51,6 +61,12 @@ listingDivH1.appendChild(listingDivH1Txt)
 var compBtn = document.createElement("button");
 
 
+function Data (id, value, taskComplted) {
+    this.id = id;
+    this.value = value;
+    this.taskComplted = taskComplted;
+}
+
 
 
 
@@ -58,17 +74,8 @@ function add() {
     // console.log(input.value);
     // inputData.push(input.value)
     // console.log(inputData)
-   
 
-
-
-   
-
-    function Data (id, value, taskComplted) {
-        this.id = id;
-        this.value = value;
-        this.taskComplted = taskComplted;
-    }
+  
 
     var data = new Data(inputData.length, input.value, false)
     inputData.push(data)
@@ -76,34 +83,44 @@ function add() {
     // console.log(inputData);
 
     for (var i = 0; i < inputData.length; i++){
-        console.log(inputData[i]);
+        // console.log(inputData[i]);
         // for (var key in inputData[i]){
         //     console.log(inputData[i][key])
 
-        
+        if(input.value === "") {
+            alert("Input cannot be empty")
+            break;
+
+        }
 
 
-        if (input.value.length <= 30  ) {
-
-           
+        else {
             listingDiv.style.display="block"
 
              
             var ul = document.createElement("ul");
             var taskDiv = document.createElement("div")
             taskDiv.setAttribute("class", "task-div")
+            taskDiv.setAttribute("id", "task")
+
             var liDiv = document.createElement("div")
             liDiv.setAttribute("class", "li-div")
             var li = document.createElement("li");
+            // li.setAttribute("class", "p")
+            li.setAttribute("id", "p")
             var liTxt = document.createTextNode(data.value)
             var btnDiv =document.createElement("div")
             btnDiv.setAttribute("class", "btn-div")
             var delBtn = document.createElement("button");
             delBtn.setAttribute("class", "del")
+            delBtn.setAttribute("onClick", "del()")
+
             var delBtnTxt = document.createTextNode("Delete")
 
             var editBtn = document.createElement("button");
             editBtn.setAttribute("class", "edit")
+            editBtn.setAttribute("onClick", "edit(event)")
+
             var editBtnTxt = document.createTextNode("Edit")
 
 
@@ -111,32 +128,12 @@ function add() {
             compBtn.setAttribute("class", "complete")
             compBtn.setAttribute("onClick", "complete()")
             var compBtnTxt = document.createTextNode("Incomplete")
-            
-
-   
-            
+          
 
         }  
        
 
-        // }
-
-        // else{
-            
-        //     alert("Correct your input")
-        // }
-    
-
     }
-   
-                
-    
-
-    if (input.value.length > 30) {
-        alert("Your Text length should be in 30 characters. ")
-    }
-    
-    
    
     listingDiv.appendChild(ul);
     ul.appendChild(taskDiv)
@@ -149,31 +146,48 @@ function add() {
     btnDiv.appendChild(editBtn)
     editBtn.appendChild(editBtnTxt)
     btnDiv.appendChild(compBtn)
-    compBtn.appendChild(compBtnTxt)
+    compBtn.appendChild(compBtnTxt);
+
+    input.value = ""; 
+  
+
 
  
-   
+}
+
+function del() {
+    var a = document.getElementById("task").remove();
+    // console.log(a);
     
+}
+var getLi;
+var input;
+function edit(event) {
+    console.log(event.target.parentNode.parentNode.childNodes[0].childNodes[0])
+     getLi = event.target.parentNode.parentNode.childNodes[0].childNodes[0]
+     
+    console.log(getLi)
+     input =document.getElementById("input");
+    input.value = getLi.textContent
+
+    updateBtn.style.display="inline"
 
 
 
+}
 
-
-
+function update() {
+    getLi.textContent = input.value
     input.value = "";
     
-
 }
-
-
 
 function complete() {
-    for (var i = 0; i < inputData.length; i++){
-    compBtn.innerText = "Completed"
-    compBtn.style.transition = "10s"
-    }
-    
-
+    getLi.innerText.style.color = "red";
 }
+
+
+
+
 
                
