@@ -5,6 +5,7 @@ body{
     font-family: 'Roboto';
     background: linear-gradient(to right, #642b73, #c6426e);
     color: white;
+    overflow: hidden;
 } 
 
 .main-heading{
@@ -15,7 +16,7 @@ body{
 }
 
 .input{
-    width: calc(40vw);
+    width: calc(50vw);
     padding: 12px 0px;
     outline: none;
     background-color:cornflowerblue;
@@ -30,7 +31,10 @@ body{
 .input-div{
     margin-left: auto;
     margin-right: auto;
-    width: calc(60vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     
 }
@@ -60,7 +64,7 @@ input::placeholder{
     color: #c6426e;
     text-transform: capitalize;
     font-weight: 800;
-    width: calc(50vw);
+    width: calc(70vw);
     height: calc(50vh);
     margin-top: 60px;
     border-radius: 10px;
@@ -83,18 +87,29 @@ input::placeholder{
     border-bottom:3px solid #c6426e;
 }
 
-.li-div{
-    
-}
 
 .task-div{
     display: flex;
     flex-direction: row;
+    /* border: 1px solid red; */
+
+    
+
+}
+
+.li-div{
+    width: calc(30vw);
+    /* border: 1px solid red; */
+
+
 
 }
 
 .btn-div{
     margin-left: auto;
+    /* width: calc(40vw); */
+    /* border: 1px solid gray; */
+
 }
 
 .btn-div button{
@@ -120,13 +135,289 @@ input::placeholder{
 .complete{
     background-color: darkorange;
     color: white;
+    margin-right: 5px;
 }
 
 button{
     cursor: pointer;
 }
 
-.x{
-    text-decoration: line-through;
+.update-btn{
+    cursor: pointer;
+    padding: 9px 30px;
+    padding-bottom: 12px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: white;
+    background-color: #f2b82d;;
+    letter-spacing: 00.1em;
+    border: none;
+
 }
+
+.cover{
+    position: absolute;
+    width: calc(100vw);
+    height: calc(100vh);
+    margin-top: 20px;
+    display: none;
+    overflow-y: hidden !important;
+}
+
+.verify-main{
+    width: calc(100vw);
+    height: calc(100vh);
+    background-color: rgba(0, 0, 0, 0.534);
+    position: absolute;
+    display: none;
+    
+   
+}
+
+.verify{
+    background-color: white;
+    width: calc(40vw);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f2b82d;
+    color: black;
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+}
+
+.verify div button{
+    width: calc(8vw);
+    margin-left: 20px;
+    font-weight: bolder;
+    padding: 5px 20px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 16px;
+
+}
+
+.yes{
+    background-color: #c6426e;
+    color: white;
+}
+
+.no{
+    background-color: crimson;
+    color: white;
+}
+
+/* #dataLoad{
+    width: calc(100vw);
+    height: calc(100vh);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.521);
+    display: none;
+
+
+} */
+
+
+#dataLoad button{
+    width: calc(20vw);
+    margin-left: 20px;
+}
+
+#dataLoad div{
+    width: calc(100vw);
+    height: calc((100vh));
+    background-color: rgba(0, 0, 0, 0.589);
+    position: absolute;
+    /* display: none; */
+}
+
+
+
+@media screen and (max-width:1080px) {
+    .complete{
+        width: calc(10vw) !important;
+    }
+    
+}
+
+
+
+@media screen and (max-width:960px) {
+    .complete{
+        width: calc(25vw) !important;
+    }
+
+    .task-div{
+        display: flex !important;
+        flex-direction: column !important;
+        border: 3px solid lightgreen;
+        padding-left: 2px;
+    }
+
+    .btn-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        padding-bottom: 10px;
+
+     
+    }
+
+    .li-div{
+        width: calc(100vw);
+    }
+
+    .btn-div button{
+        margin-left: 20px;
+        width: calc(25vw);
+        margin-top: 10px;
+    }
+
+
+    
+}
+
+
+@media screen and (max-width:780px) {
+    .complete{
+        width: calc(15vw) !important;
+    }
+    .yes{
+        width: calc(15vw) !important;
+    }
+    .no{
+        width: calc(15vw) !important;
+
+    }
+    
+}
+
+@media screen and (max-width:700px) {
+
+    .task-div{
+        display: flex !important;
+        flex-direction: column !important;
+        border: 3px solid lightgreen;
+        padding-left: 2px;
+    }
+
+    .btn-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        padding-bottom: 10px;
+
+     
+    }
+
+    .li-div{
+        width: calc(100vw);
+    }
+
+    .btn-div button{
+        margin-left: 20px;
+        width: calc(25vw);
+        margin-top: 10px;
+    }
+
+    .complete{
+        width: calc(30vw) !important;
+    }
+
+    
+}
+
+@media screen and (max-width:500px) {
+
+    .btn-div{
+        margin: 0px;
+
+    }
+
+    .btn-div button{
+        width: calc(100vw) !important;
+        margin-left: 2px;
+        border-radius: 0px;
+       
+    }
+
+    .input-div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input{
+        width: calc(90vw);
+    }
+    .add-btn{
+        margin-top: 20px;
+    }
+
+    .update-btn{
+        margin-top: 20px;
+    }
+
+    .verify{
+        width: calc(60vw);
+    }
+
+    .v{
+        display: flex;
+        flex-direction: column;
+
+        
+       
+    }
+
+    .v button{
+        width: calc(49vw) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 5px !important;
+
+
+    }
+}
+
+
+@media screen and (max-width:400px) {
+    .input{
+        width: calc(100vw);
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .input::placeholder{
+        text-align: center;
+        font-size: 16px;
+
+
+    }
+
+    .add-btn{
+        width: calc(40vw);
+        
+    }
+
+    .list-div{
+        width: calc(100vw);
+        border-radius: 0px;
+    }
+
+    
+}
+
+
+
+
+
+
+
 
